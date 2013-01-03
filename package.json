@@ -1,0 +1,49 @@
+{
+  "name": "grunt-minified",
+  "description": "A grunt plugin to minify given JavaScript files",
+  "version": "0.0.1",
+  "homepage": "https://github.com/phun-ky/grunt-minified",
+  "author": {
+    "name": "Alexander Vassbotn Røyne-Helgesen",
+    "email": "alexander@phun-ky.net",
+    "url": "http://phun-ky.net"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/phun-ky/grunt-minified.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phun-ky/grunt-minified/issues"
+  },
+  "licenses": [
+    {
+      "type": "GPL",
+      "url": "https://github.com/phun-ky/grunt-minified/blob/master/LICENSE-GPL"
+    }
+  ],
+  "main": "grunt.js",
+  "bin": "bin/grunt-minified",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "grunt": "~0.4.0rc2",
+    "uglify-js" : "~2.2.2"
+
+  },
+  "devDependencies": {
+    "grunt": "~0.4.0rc2"
+  },
+  "keywords": [
+    "gruntplugin",
+    "minify",
+    "minified",
+    "minification",
+    "uglify",
+    "uglifyjs",
+    "grunt"
+  ]
+}
