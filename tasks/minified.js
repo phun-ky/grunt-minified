@@ -55,7 +55,7 @@ module.exports = function(grunt) {
     };
       
     // Set path of files to be stored
-    _destPath = projectPath + this.file.dest;
+    _destPath = this.file.dest;
 
     // Iterate over files to minify
     this.file.src.forEach(function(source){              
