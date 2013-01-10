@@ -29,19 +29,31 @@ module.exports = function(grunt) {
 
       // Sandboxed variables
 
+
+
       // Read file source
       var src       = grunt.file.read(source);
-
-      // Minify file source
-      var ast       = uglify.minify(source);
-      var minSrc    = ast.code
-
       // Get file name
       var filename  = path.basename(source);
+
+      var sourcemapfile = filename + ".map";
+      // Minify file source
+      var result       = uglify.minify(source, {
+        outSourceMap: sourcemapfile
+      });
+
+      var mapDest = _destPath + sourcemapfile;
+
+      // Write source map to file
+      grunt.file.write( mapDest, result.map );  
+
+      var minSrc    = result.code
+
+      
       
       // Verbose output by default for now
-      console.log(filename + ", ");
-      console.log('Original size: ' + src.length + ' bytes.' + ' Minified size: ' + minSrc.length + ' bytes.');      
+      
+      grunt.log.ok(filename + ': original size: ' + src.length + ' bytes.' + ' Minified size: ' + minSrc.length + ' bytes.');      
 
       // Set up destiation variable
       var minDest = '';
