@@ -55,10 +55,10 @@ module.exports = function(grunt) {
     };
       
     // Set path of files to be stored
-    _destPath = this.file.dest;
+    _destPath = this.data.dest;
 
     // Iterate over files to minify
-    this.file.src.forEach(function(source){              
+    this.filesSrc.forEach(function(source){              
       
       // Bazinga!
       minifyJS(source);

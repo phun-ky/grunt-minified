@@ -34,6 +34,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 _(Until v1.0.0, this will only be updated when major or breaking changes are made)_
 
+10/01/2013: Added support for grunt v 0.4.0rc5
 
 
 ## License
