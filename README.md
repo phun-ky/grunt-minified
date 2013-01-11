@@ -49,7 +49,13 @@ Generate a sourcemap for the generated files(s) if toggled. The output files is 
 * Type: `Boolean`
 * Defaults: `false`
 
-Generate just one minified file if toggled. Output file is saved as `minified.js` if `dest` is not a filepath.
+Generate just one minified file if toggled. Output file is saved as `minified.js` if `options.dest_filename` is not set.
+
+#### dest_filename
+* Type: `String`
+* Defaults: `minified.js`
+
+If `allinone` is set, grunt-minified will use `dest_filename` for the generated sourcemap. No point of setting this if `allinone` is set to false.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
