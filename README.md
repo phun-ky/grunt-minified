@@ -15,18 +15,41 @@ Then add this line to your project's `Gruntfile.js`:
 [getting_started]: https://github.com/gruntjs/grunt/wiki/Getting-started
 
 ## Documentation
-Add something like this in yer gruntfile:
+Add something like this in your gruntfile:
 
-	minified : {
-      files: {
-        src: [
-          '/js/src/**/*.js',                
-          '/js/src/*.js'
-        ],
-        dest: '/js/min/'
-      }
-    }
+```javascript
+minified : {
+  files: {
+    src: [
+    '/js/src/**/*.js',                
+    '/js/src/*.js'
+    ],
+    dest: '/js/min/'
+  },
+  options : {
+    sourcemap: true,
+    allinone: false
+  }
+} 
+```
 
+With this configuration, grunt-minified will output a minified file and a sourcemap per parsed file with this filename structure: `<filename>.min.js` in the `dest` folder.
+
+### Options
+
+Grunt-minified currently supports these options:
+
+#### sourcemap
+* Type: `Boolean`
+* Defaults: `false`
+
+Generate a sourcemap for the generated files(s) if toggled. The output files is saved with this filename structure: `<filename>.js.map` in the `dest` folder.
+
+#### allinone
+* Type: `Boolean`
+* Defaults: `false`
+
+Generate just one minified file if toggled. Output file is saved as `minified.js` if `dest` is not a filepath.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
