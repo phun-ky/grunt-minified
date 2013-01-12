@@ -66,8 +66,8 @@ If `uglifyOpts` is set, grunt-minified will pass along the options to uglify-js.
 * `warnings`: (default `false`) - pass `true` to display compressor warnings.
 * `fromString`: (default `false`) - if you pass `true` then you can pass JavaScript source code, rather than file names.
 * `mangle`: pass `false` to skip mangling names.
-* `output`: (default `null`) - pass an object if you wish to specify additional [Beautifier options](#Beautifier-options). The defaults are optimized for best compressions. Please see [UglifyJS - the code generator][codegen] for more details.
-* `compress`: (default `{}`) - pass `false` to skip compressing entirely. Pass an object to specify custom [compressor options][compressor].
+* `output`: (default `null`) - pass an object if you wish to specify additional [Beautifier options](#beautifier-options). The defaults are optimized for best compressions. Please see [UglifyJS - the code generator][codegen] for more details.
+* `compress`: (default `{}`) - pass `false` to skip compressing entirely. Pass an object to specify custom [compressor options](#compressor-options). Please see [UglifyJS - the compressor][compressor] for more details.
 
 ##### Beautifier options
 * `beautify` (default `true`) -- whether to actually beautify the output.
