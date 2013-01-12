@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 
     // Set up destiation variable
     var minDest = '';
-    var uglifyOpts;
+    var uglifyOpts = (_opts.uglifyOpts) ? _opts.uglifyOpts : {};
     var mapDest;
 
     // Set up callback function for file iteration
@@ -47,10 +47,7 @@ module.exports = function(grunt) {
 
 
       if(_opts.sourcemap){
-        uglifyOpts = {
-          outSourceMap: filename + '.map'
-        };
-
+        uglifyOpts.outSourceMap = filename + '.map';
         mapDest = _destPath + uglifyOpts.outSourceMap;
       }
       // Minify file source
