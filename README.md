@@ -55,7 +55,8 @@ Generate just one minified file if toggled. Output file is saved as `minified.js
 * Type: `String`
 * Defaults: `minified.js`
 
-If `allinone` is set, grunt-minified will use `dest_filename` for the generated sourcemap. No point of setting this if `allinone` is set to false.
+If `allinone` is set, grunt-minified will use `dest_filename` for the generated sourcemap. No point of setting this if `allinone` is set to false. 
+Currently, this is a copy & paste from UgliyJS2, YMMV.
 
 #### uglifyOpts
 * Type: `Object`
