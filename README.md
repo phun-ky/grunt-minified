@@ -115,6 +115,8 @@ The defaults should be tuned for maximum compression on most code.  Here are the
 * `warnings` -- display warnings when dropping unreachable code or unused
   declarations etc.
 
+  For more information on UglifyJS, please see the [UglifyJS Website][uglifyjs]
+
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
 
@@ -131,3 +133,4 @@ Licensed under the GPL license.
 
   [codegen]: http://lisperator.net/uglifyjs/codegen
   [compressor]: http://lisperator.net/uglifyjs/compress
+  [uglifyjs]: http://lisperator.net/uglifyjs/
