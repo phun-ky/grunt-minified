@@ -25,6 +25,10 @@ module.exports = function(grunt) {
     // Set up vars for task
     var _destPath = '';
     var _opts     = this.options();
+    var _isMirrorSource = (_opts.mirrorSource && _opts.mirrorSource.path)? true : false;
+    if( _isMirrorSource ) {
+      var _mirrorSourcePathLen = path.dirname(_opts.mirrorSource.path).split(path.sep).length;
+    }
 
 
     // Set up destiation variable
@@ -36,14 +40,15 @@ module.exports = function(grunt) {
     var minify_file = function(file){
 
       // Sandboxed variables
-
-
-
+      var filePath = '';
       // Read file source
       var src       = grunt.file.read(file);
       // Get file name
       var filename  = path.basename(file);
-
+      // set file extention
+      if(_opts.ext) {
+        filename = filename.replace('.js', _opts.ext);
+      }
 
 
       if(_opts.sourcemap){
@@ -51,7 +56,7 @@ module.exports = function(grunt) {
         mapDest = _destPath + uglifyOpts.outSourceMap;
       }
       // Minify file source
-      var result       = uglify.minify(file, uglifyOpts);
+      var result = uglify.minify(file, uglifyOpts);
 
       if(_opts.sourcemap){
 
@@ -59,7 +64,7 @@ module.exports = function(grunt) {
         grunt.file.write( mapDest, result.map );
       }
 
-      var minSrc    = result.code
+      var minSrc = result.code;
 
       // Verbose output by default for now
       if(_opts.verbose){
@@ -82,21 +87,32 @@ module.exports = function(grunt) {
 
 
       // Set destination
-      minDest = _destPath + filename.replace('.js','.min.js')
+      filePath = (_isMirrorSource) ? changeFilePath(file) : _destPath;
+      minDest = filePath + filename.replace('.js','.min.js');
 
       // Write minified sorce to destination file
       grunt.file.write( minDest, minSrc );
 
     };
 
+    var changeFilePath = function(file){
+      var srcPath = path.dirname(file),
+          srcPathAry = srcPath.split(path.sep),
+          srcPathArySlice = srcPathAry.slice(_mirrorSourcePathLen),
+          newPath = path.join(_destPath, srcPathArySlice.join(path.sep)) + path.sep;
+      return newPath;
+    };
+
     var minify_files = function(files){
 
-      if(!_opts.dest_filename){
-        _opts.dest_filename = 'minified.js'
+      var filename = (_opts.dest_filename) ? _opts.dest_filename : 'minified.js';
+      // set file extention
+      if(_opts.ext) {
+        filename = filename.replace('.js', _opts.ext);
       }
 
       // Set destination
-      minDest = _destPath + _opts.dest_filename.replace('.js','.min.js')
+      minDest = _destPath + filename;
 
       // Minify file source
       var result       = uglify.minify(files, uglifyOpts);

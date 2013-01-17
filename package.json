@@ -1,13 +1,16 @@
 {
   "name": "grunt-minified",
   "description": "A grunt plugin to minify given JavaScript files",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "homepage": "https://github.com/phun-ky/grunt-minified",
   "author": {
     "name": "Alexander Vassbotn Røyne-Helgesen",
     "email": "alexander@phun-ky.net",
     "url": "http://phun-ky.net"
   },
+  "contributors": [
+    "Larry Gordon <lgordon@psyrendust.com> (https://github.com/psyrendust)"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/phun-ky/grunt-minified.git"

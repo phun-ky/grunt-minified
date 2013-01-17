@@ -58,6 +58,63 @@ Generate just one minified file if toggled. Output file is saved as `minified.js
 If `allinone` is set, grunt-minified will use `dest_filename` for the generated sourcemap. No point of setting this if `allinone` is set to false. 
 Currently, this is a copy & paste from UgliyJS2, YMMV.
 
+#### ext
+* Type: `String`
+* Defaults: `null`
+
+If `ext` is set, grunt-minified will replace the files current extention with `ext`. The extension must begin with a `.` to work correctly. Eg `.min.js`. This will also override the extension of `dest_filename` if set.
+
+#### mirrorSource
+* Type: `Object`
+* Defaults: `null`
+
+If `mirrorSource.path` is set, grunt-minified will mirror the destination path to the source path of each file that is processed. You must supply at `path` property for `mirrorSource` to work.
+
+##### mirrorSource.path
+* Type: 'String'
+* Defaults: `null`
+
+`mirrorSource.path` is a `String` that describes the base path of the source folder that you would like to mirror. The `mirrorSource.path` will be replaced by `files.dest`.
+
+Example configuration using `mirrorSource`:
+
+```javascript
+minified : {
+  dev: {
+    files: {
+      src: [
+      'source/**/*.js'
+      ],
+      dest: 'deploy'
+    },
+    options : {
+      sourcemap: false,
+      allinone: false,
+      mirrorSource: {
+        path: 'source/js/'
+      },
+      ext: '.min.js'
+    }
+  }
+}
+```
+
+Example folder output using `mirrorSource`:
+
+```bash
+/cwd/
+├─┬ source
+| ├─┬ folder_a
+|   ├── a.js
+|   └─┬ folder_ab
+|     └── ab.js
+├─┬ deploy
+| ├─┬ folder_a
+|   ├── a.min.js
+|   └─┬ folder_ab
+|     └── ab.min.js
+```
+
 #### uglifyOpts
 * Type: `Object`
 * Defaults: `{}`
@@ -121,9 +178,13 @@ The defaults should be tuned for maximum compression on most code.  Here are the
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [grunt][grunt].
 
+## Contributors
+  * ["psyrendust" Larry Gordon][psyrendust]
+
 ## Release History
 _(Until v1.0.0, this will only be updated when major or breaking changes are made)_
 
+  * 2013/01/13 - v0.0.5 - Added support for mirroring source to dest and the ability to set a custom file extension on minified files.
   * 2013/01/11 - v0.0.4 - Added support for UglifyJS options
   * 2013/01/10 - v0.0.3 - Added support for grunt v 0.4.0rc5
 
@@ -135,3 +196,4 @@ Licensed under the GPL license.
   [codegen]: http://lisperator.net/uglifyjs/codegen
   [compressor]: http://lisperator.net/uglifyjs/compress
   [uglifyjs]: http://lisperator.net/uglifyjs/
+  [psyrendust]: https://github.com/psyrendust
