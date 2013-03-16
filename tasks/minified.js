@@ -88,7 +88,7 @@ module.exports = function(grunt) {
 
       // Set destination
       filePath = (_isMirrorSource) ? changeFilePath(file) : _destPath;
-      minDest = filePath + filename.replace('.js','.min.js');
+      minDest = filePath + filename;
 
       // Write minified sorce to destination file
       grunt.file.write( minDest, minSrc );
