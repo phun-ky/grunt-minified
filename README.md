@@ -2,6 +2,12 @@
 
 > A grunt plugin to minify given JavaScript files
 
+## No more development
+
+This plugin was originally intended to add some features grunt-contrib-uglify did not supply under Grunt 0.3. After the Grunt 0.4 release, there's no longer need for grunt-minified.
+
+I will no longer develop this plugin any further and I strongly suggest users of this plugin to eiter fork it and continue the development on their hand, or use the fully featured [grunt-contrib-uglify] plugin.
+
 ## Getting Started
 Install this grunt plugin next to your project's [Gruntfile.js][getting_started] with:
 
@@ -11,6 +17,7 @@ Then add this line to your project's `Gruntfile.js`:
 
 `grunt.loadNpmTasks('grunt-minified');`
 
+[grunt-contrib-uglify]: https://npmjs.org/package/grunt-contrib-uglify
 [grunt]: https://github.com/gruntjs/grunt
 [getting_started]: https://github.com/gruntjs/grunt/wiki/Getting-started
 
